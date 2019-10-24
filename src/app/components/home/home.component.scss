@@ -1,0 +1,119 @@
+.guacamaya {
+    background-image: url("../../../assets/guacamaya.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    margin-bottom: 3%;
+  }
+  
+.guacamaya-title {
+    text-align: center;
+    width: 100%;
+}
+  
+.row-left {
+    margin-left: 0;
+}
+  
+.line {
+    border: 2px solid #ffce00;
+}
+.line-title {
+    margin-right: 18%;
+    margin-left: 23%;
+}
+  
+.travel-section {
+    margin-top: 18%;
+    padding-bottom: 1.5%;
+}
+  
+.guacamaya-img {
+    width: 100%;
+}
+  
+.space-top {
+    margin-top: 2%;
+}
+  
+.big-info {
+    background-image: url("../../../assets/mountains.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.block-with-text {
+    overflow: hidden;
+    position: relative;
+    line-height: 1.2em;
+    max-height: 7em;
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 1em;
+}
+  
+.block-with-text:before {
+    content: "...";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.block-with-text:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+}
+  
+.popular {
+    margin-bottom: 3%;
+}
+  
+.services {
+    margin-bottom: 3%;
+}
+.carousel-item {
+    margin-right: 0;
+}
+  
+.carousel-img {
+    display: block;
+    width: 100%;
+    padding-right: 2%;
+    border-radius: 3%;
+}
+  
+.guacamaya-subtitle {
+    text-align: center;
+    width: 100%;
+    color: #707070;
+}
+  
+.service {
+    justify-content: center;
+}
+  
+.service-img {
+    width: 100%;
+}
+  
+.service-separator {
+    margin-top: 3%;
+}
+  
+.image-container {
+    align-self: center;
+}
+  
+.service-container {
+    background-color: #e4b904;
+    border-radius: 50%;
+    border: 2px solid #737373;
+    width: 15rem;
+    height: 15rem;
+    margin-left: 30%;
+    margin-bottom: 4%;
+}
+  
