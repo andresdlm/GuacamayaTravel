@@ -9,12 +9,16 @@ import { HotelsComponent } from './components/hotels/hotels.component';
 import { ItineraryComponent } from './components/itinerary/itinerary.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PlanYourTripComponent } from './components/plan-your-trip/plan-your-trip.component';
+import { HotelComponent } from './components/hotel/hotel.component';
+import { DestinationComponent } from './components/destination/destination.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'destinos', component: DestinationsComponent},
+  { path: 'destino/:id', component: DestinationComponent},
   { path: 'hoteles', component: HotelsComponent},
+  { path: 'hotel/:id', component: HotelComponent},
   { path: 'planea-tu-viaje', component: PlanYourTripComponent},
   { path: 'itinerario', component: ItineraryComponent},
   { path: 'contacto', component: ContactComponent},
