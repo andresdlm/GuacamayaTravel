@@ -32,6 +32,7 @@ import { StatesAdminComponent } from './components/admin/states-admin/states-adm
 import { CitiesAdminComponent } from './components/admin/cities-admin/cities-admin.component';
 import { RoomsAdminComponent } from './components/admin/rooms-admin/rooms-admin.component';
 import { ModalComponent } from './components/admin/modal/modal.component';
+import { AdminNavigationComponent } from './navigation/admin-navigation/admin-navigation.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ModalComponent } from './components/admin/modal/modal.component';
     StatesAdminComponent,
     CitiesAdminComponent,
     RoomsAdminComponent,
-    ModalComponent
+    ModalComponent,
+    AdminNavigationComponent
   ],
   imports: [
     BrowserModule,

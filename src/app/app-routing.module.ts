@@ -19,27 +19,34 @@ import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-adm
 import { RoomsAdminComponent } from './components/admin/rooms-admin/rooms-admin.component';
 import { OrdersAdminComponent } from './components/admin/orders-admin/orders-admin.component';
 import { StatesAdminComponent } from './components/admin/states-admin/states-admin.component';
+import { AdminNavigationComponent } from './navigation/admin-navigation/admin-navigation.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'destinos', component: DestinationsComponent},
-  { path: 'destino/:id', component: DestinationComponent},
-  { path: 'hoteles', component: HotelsComponent},
-  { path: 'hotel/:id', component: HotelComponent},
-  { path: 'planea-tu-viaje', component: PlanYourTripComponent},
-  { path: 'itinerario', component: ItineraryComponent},
-  { path: 'contacto', component: ContactComponent},
-  { path: 'admin/login', component: LoginComponent},
-  { path: 'admin/register', component: RegisterComponent},
-  { path: 'admin', component: DashboardAdminComponent},
-  { path: 'admin/destinos', component: DestinationsAdminComponent},
-  { path: 'admin/hoteles', component: HotelsAdminComponent},
-  { path: 'admin/habitaciones', component: RoomsAdminComponent},
-  { path: 'admin/ordenes', component: OrdersAdminComponent},
-  { path: 'admin/estados', component: StatesAdminComponent},
-  { path: 'admin/ciudades', component: CitiesAdminComponent},
-  { path: '**', component: Page404Component}
+  { path: 'destinos', component: DestinationsComponent },
+  { path: 'destino/:id', component: DestinationComponent },
+  { path: 'hoteles', component: HotelsComponent },
+  { path: 'hotel/:id', component: HotelComponent },
+  { path: 'planea-tu-viaje', component: PlanYourTripComponent },
+  { path: 'itinerario', component: ItineraryComponent },
+  { path: 'contacto', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  {
+    path: 'admin',
+    component: AdminNavigationComponent,
+    children: [
+      { path: '', component: DashboardAdminComponent },
+      { path: 'destinos', component: DestinationsAdminComponent },
+      { path: 'hoteles', component: HotelsAdminComponent },
+      { path: 'habitaciones', component: RoomsAdminComponent },
+      { path: 'ordenes', component: OrdersAdminComponent },
+      { path: 'estados', component: StatesAdminComponent },
+      { path: 'ciudades', component: CitiesAdminComponent },
+    ]
+  },
+  { path: '**', component: Page404Component }
 ];
 
 @NgModule({

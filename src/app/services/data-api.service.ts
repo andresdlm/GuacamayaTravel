@@ -76,7 +76,7 @@ export class DataApiService {
   readOneHotel(idHotel: string) {
     this.hotelDoc = this.afs.doc<HotelInterface>(`hotel/${idHotel}`);
     return this.hotel = this.hotelDoc.snapshotChanges().pipe(map(action => {
-      if(action.payload.exists == false) {
+      if (action.payload.exists === false) {
         return null;
       } else {
         const data = action.payload.data() as HotelInterface;
@@ -87,7 +87,7 @@ export class DataApiService {
   }
 
   updateHotels(hotel: HotelInterface): void {
-    let idHotel = hotel.id;
+    const idHotel = hotel.id;
     this.hotelDoc = this.afs.doc<HotelInterface>(`hotel/${idHotel}`);
     this.hotelDoc.update(hotel);
   }
@@ -117,7 +117,7 @@ export class DataApiService {
   readOneDestination(idDestination: string) {
     this.destinationDoc = this.afs.doc<DestinationInterface>(`destino/${idDestination}`);
     return this.destination = this.destinationDoc.snapshotChanges().pipe(map(action => {
-      if(action.payload.exists == false) {
+      if (action.payload.exists === false) {
         return null;
       } else {
         const data = action.payload.data() as DestinationInterface;
@@ -128,7 +128,7 @@ export class DataApiService {
   }
 
   updateDestination(destination: DestinationInterface): void {
-    let idDestination = destination.id;
+    const idDestination = destination.id;
     this.destinationDoc = this.afs.doc<DestinationInterface>(`destino/${idDestination}`);
     this.destinationDoc.update(destination);
   }
@@ -156,7 +156,7 @@ export class DataApiService {
   }
 
   updateCategory(category: CategoryInterface): void {
-    let idCategory = category.id;
+    const idCategory = category.id;
     this.categoryDoc = this.afs.doc<CategoryInterface>(`categoria/${idCategory}`);
     this.categoryDoc.update(category);
   }
@@ -184,7 +184,7 @@ export class DataApiService {
   }
 
   updateState(state: StateInterface): void {
-    let idState = state.id;
+    const idState = state.id;
     this.stateDoc = this.afs.doc<StateInterface>(`estado/${idState}`);
     this.stateDoc.update(state);
   }
@@ -212,7 +212,7 @@ export class DataApiService {
   }
 
   updateCity(city: CityInterface): void {
-    let idCity = city.id;
+    const idCity = city.id;
     this.cityDoc = this.afs.doc<CityInterface>(`ciudad/${idCity}`);
     this.cityDoc.update(city);
   }
@@ -240,7 +240,7 @@ export class DataApiService {
   }
 
   updateOrder(order: OrderInterface): void {
-    let idOrder = order.id;
+    const idOrder = order.id;
     this.orderDoc = this.afs.doc<OrderInterface>(`orden/${idOrder}`);
     this.orderDoc.update(order);
   }
