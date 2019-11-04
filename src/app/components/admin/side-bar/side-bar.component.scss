@@ -1,0 +1,29 @@
+.sidebar {
+    width: 200px;
+    background-color: #fff;
+    left: 0;
+    top: 0;
+    right: auto;
+    min-height: 120%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.items {
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    color: black;
+    padding-left: 30px;
+}
+
+.item span {
+    font-family: Arial, Helvetica, sans-serif;;
+}
+
+li {
+    width: 200;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

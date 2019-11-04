@@ -23,6 +23,15 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { SideBarComponent } from './components/admin/side-bar/side-bar.component';
+import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-admin.component';
+import { DashboardAdminComponent } from './components/admin/dashboard-admin/dashboard-admin.component';
+import { DestinationsAdminComponent } from './components/admin/destinations-admin/destinations-admin.component';
+import { OrdersAdminComponent } from './components/admin/orders-admin/orders-admin.component';
+import { StatesAdminComponent } from './components/admin/states-admin/states-admin.component';
+import { CitiesAdminComponent } from './components/admin/cities-admin/cities-admin.component';
+import { RoomsAdminComponent } from './components/admin/rooms-admin/rooms-admin.component';
+import { ModalComponent } from './components/admin/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +49,16 @@ import { AngularFirestore } from '@angular/fire/firestore';
     PlanYourTripComponent,
     LoginComponent,
     RegisterComponent,
-    Page404Component
+    Page404Component,
+    SideBarComponent,
+    HotelsAdminComponent,
+    DashboardAdminComponent,
+    DestinationsAdminComponent,
+    OrdersAdminComponent,
+    StatesAdminComponent,
+    CitiesAdminComponent,
+    RoomsAdminComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

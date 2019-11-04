@@ -11,6 +11,14 @@ import { ContactComponent } from './components/contact/contact.component';
 import { PlanYourTripComponent } from './components/plan-your-trip/plan-your-trip.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { DestinationComponent } from './components/destination/destination.component';
+import { SideBarComponent } from './components/admin/side-bar/side-bar.component';
+import { DashboardAdminComponent } from './components/admin/dashboard-admin/dashboard-admin.component';
+import { CitiesAdminComponent } from './components/admin/cities-admin/cities-admin.component';
+import { DestinationsAdminComponent } from './components/admin/destinations-admin/destinations-admin.component';
+import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-admin.component';
+import { RoomsAdminComponent } from './components/admin/rooms-admin/rooms-admin.component';
+import { OrdersAdminComponent } from './components/admin/orders-admin/orders-admin.component';
+import { StatesAdminComponent } from './components/admin/states-admin/states-admin.component';
 
 
 const routes: Routes = [
@@ -24,6 +32,13 @@ const routes: Routes = [
   { path: 'contacto', component: ContactComponent},
   { path: 'admin/login', component: LoginComponent},
   { path: 'admin/register', component: RegisterComponent},
+  { path: 'admin', component: DashboardAdminComponent},
+  { path: 'admin/destinos', component: DestinationsAdminComponent},
+  { path: 'admin/hoteles', component: HotelsAdminComponent},
+  { path: 'admin/habitaciones', component: RoomsAdminComponent},
+  { path: 'admin/ordenes', component: OrdersAdminComponent},
+  { path: 'admin/estados', component: StatesAdminComponent},
+  { path: 'admin/ciudades', component: CitiesAdminComponent},
   { path: '**', component: Page404Component}
 ];
 
