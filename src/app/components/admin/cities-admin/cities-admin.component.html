@@ -1,1 +1,24 @@
-<p>cities-admin works!</p>
+<h3 class="float-left">Ciudades</h3>
+<button class="btn btn-primary float-right mb-3">Nueva Ciudad</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Estado</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let city of cities">
+            <td>{{ city.name }}</td>
+            <td>{{ city.state }}</td>
+            <td>
+                <button class="btn btn-primary">Modificar</button>
+            </td>
+            <td>
+                <button class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

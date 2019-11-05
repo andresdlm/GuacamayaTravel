@@ -31,8 +31,15 @@ import { OrdersAdminComponent } from './components/admin/orders-admin/orders-adm
 import { StatesAdminComponent } from './components/admin/states-admin/states-admin.component';
 import { CitiesAdminComponent } from './components/admin/cities-admin/cities-admin.component';
 import { RoomsAdminComponent } from './components/admin/rooms-admin/rooms-admin.component';
-import { ModalComponent } from './components/admin/modal/modal.component';
 import { AdminNavigationComponent } from './navigation/admin-navigation/admin-navigation.component';
+import { CityModalComponent } from './components/admin/modals/city-modal/city-modal.component';
+import { StateModalComponent } from './components/admin/modals/state-modal/state-modal.component';
+import { RoomModalComponent } from './components/admin/modals/room-modal/room-modal.component';
+import { OrderModalComponent } from './components/admin/modals/order-modal/order-modal.component';
+import { HotelModalComponent } from './components/admin/modals/hotel-modal/hotel-modal.component';
+import { DestinationModalComponent } from './components/admin/modals/destination-modal/destination-modal.component';
+import { CategoryModalComponent } from './components/admin/modals/category-modal/category-modal.component';
+import { CategoriesAdminComponent } from './components/admin/categories-admin/categories-admin.component';
 
 @NgModule({
   declarations: [
@@ -59,8 +66,15 @@ import { AdminNavigationComponent } from './navigation/admin-navigation/admin-na
     StatesAdminComponent,
     CitiesAdminComponent,
     RoomsAdminComponent,
-    ModalComponent,
-    AdminNavigationComponent
+    AdminNavigationComponent,
+    CityModalComponent,
+    StateModalComponent,
+    RoomModalComponent,
+    OrderModalComponent,
+    HotelModalComponent,
+    DestinationModalComponent,
+    CategoryModalComponent,
+    CategoriesAdminComponent,
   ],
   imports: [
     BrowserModule,

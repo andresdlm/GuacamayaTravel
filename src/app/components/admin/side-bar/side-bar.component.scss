@@ -1,25 +1,16 @@
 .sidebar {
     width: 200px;
-    background-color: #f5f5f5;
     left: 0;
     top: 0;
     right: auto;
-    min-height: 120%;
+    min-height: 100%;
     font-family: Arial, Helvetica, sans-serif;
+    padding-left: 15px;
+    padding-bottom: 15px;
 }
 
-.items {
-    list-style: none;
-    padding: 0;
-}
-
-.item {
+a {
     color: black;
-    padding-left: 30px;
-}
-
-.item span {
-    font-family: Arial, Helvetica, sans-serif;;
 }
 
 li {
