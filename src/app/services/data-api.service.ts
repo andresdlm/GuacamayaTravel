@@ -7,6 +7,7 @@ import { DestinationInterface } from '../models/destination';
 import { HotelInterface } from '../models/hotel';
 import { OrderInterface } from '../models/order';
 import { StateInterface } from '../models/state';
+import { RoomInterface } from '../models/room';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -27,6 +28,8 @@ export class DataApiService {
     this.orders = this.ordersCollection.valueChanges();
     this.statesCollection = afs.collection<StateInterface>('estados');
     this.states = this.statesCollection.valueChanges();
+    this.roomsCollection = afs.collection<RoomInterface>('habitaciones');
+    this.rooms = this.roomsCollection.valueChanges();
   }
 
   private categoriesCollection: AngularFirestoreCollection<CategoryInterface>;
@@ -41,6 +44,8 @@ export class DataApiService {
   private orders: Observable<OrderInterface[]>;
   private statesCollection: AngularFirestoreCollection<StateInterface>;
   private states: Observable<StateInterface[]>;
+  private roomsCollection: AngularFirestoreCollection<RoomInterface>;
+  private rooms: Observable<RoomInterface[]>;
 
   private hotelDoc: AngularFirestoreDocument<HotelInterface>;
   private hotel: Observable<HotelInterface>;
@@ -54,6 +59,8 @@ export class DataApiService {
   private city: Observable<CityInterface>;
   private orderDoc: AngularFirestoreDocument<OrderInterface>;
   private order: Observable<OrderInterface>;
+  private roomDoc: AngularFirestoreDocument<RoomInterface>;
+  private room: Observable<RoomInterface>;
 
 
   // CRUD Hoteles
@@ -249,4 +256,33 @@ export class DataApiService {
     this.orderDoc = this.afs.doc<OrderInterface>(`orden/${idOrder}`);
     this.orderDoc.delete();
   }
+
+  // CRUD Habitaciones
+
+  createRoom(room: RoomInterface): void {
+    this.roomsCollection.add(room);
+  }
+
+  readAllRoom() {
+    return this.rooms = this.roomsCollection.snapshotChanges()
+      .pipe(map(changes => {
+        return changes.map(action => {
+          const data = action.payload.doc.data() as RoomInterface;
+          data.id = action.payload.doc.id;
+          return data;
+        });
+      }));
+  }
+
+  updateRoom(room: RoomInterface): void {
+    const idRoom = room.id;
+    this.roomDoc = this.afs.doc<RoomInterface>(`room/${idRoom}`);
+    this.roomDoc.update(room);
+  }
+
+  deleteRoom(idRoom): void {
+    this.roomDoc = this.afs.doc<RoomInterface>(`room/${idRoom}`);
+    this.roomDoc.delete();
+  }
+
 }

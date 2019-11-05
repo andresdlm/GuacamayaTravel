@@ -1,1 +1,40 @@
-<p>hotels-admin works!</p>
+<section class="row mt-5">
+    <div class="col">
+     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalHotel">New Hotel</button>
+     <table class="table table-hover">
+      <thead>
+       <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Estrellas</th>
+        <th scope="col">Latitud</th>
+        <th scope="col">Longitud</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Ciudad</th>
+        <th scope="col">Tipo de Habitacion</th>
+       </tr>
+      </thead>
+       <tr *ngFor="let hotel of hotels; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{hotel.name}}</td>
+        <td>{{hotel.stars}}</td>
+        <td>{{hotel.latitude}}</td>
+        <td>{{hotel.longitude}}</td>
+        <td>{{hotel.direction}}</td>
+        <td>{{hotel.state}}</td>
+        <td>{{hotel.city}}</td>
+        <td>{{hotel.}}</td>
+        <td>
+         <button class="btn btn-primary">Update</button>
+        </td>
+        <td>
+         <button class="btn btn-danger">Delete</button>
+        </td>
+       </tr>
+      <tbody>
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <app-modal></app-modal>

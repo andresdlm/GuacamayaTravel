@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from 'src/app/services/data-api.service';
+import { RoomInterface } from 'src/app/models/room';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-rooms-admin',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomsAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
+  private rooms: RoomInterface[];
 
   ngOnInit() {
+    this.getRoomsAdminComponent();
+  }
+
+  getRoomsAdminComponent() {
+    this.dataApi.readAllRoom().subscribe(rooms => {
+      this.rooms = rooms;
+    });
+  }
+
+  onDeleteRooms(idRoom: string): void {
+    const confirmacion = confirm('Are you sure?');
+    if (confirmacion) {
+      this.dataApi.deleteRoom(idRoom);
+    }
   }
 
 }

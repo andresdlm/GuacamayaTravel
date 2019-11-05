@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from 'src/app/services/data-api.service';
+import { OrderInterface } from 'src/app/models/order';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-orders-admin',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
+  private orders: OrderInterface[];
 
   ngOnInit() {
+    this.getOrdersAdminComponent();
   }
+
+  getOrdersAdminComponent() {
+    this.dataApi.readAllOrder().subscribe(orders => {
+      this.orders = orders;
+    });
+  }
+
+  onDeleteOrders(idOrder: string): void {
+    const confirmacion = confirm('Are you sure?');
+    if (confirmacion) {
+      this.dataApi.deleteOrder(idOrder);
+    }
+  }  
 
 }

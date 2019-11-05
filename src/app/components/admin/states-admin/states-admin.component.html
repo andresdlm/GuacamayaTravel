@@ -1,1 +1,27 @@
-<p>states-admin works!</p>
+<section class="row mt-5">
+    <div class="col">
+     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalState">New State</button>
+     <table class="table table-hover">
+      <thead>
+       <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+       </tr>
+      </thead>
+       <tr *ngFor="let state of states; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{hotel.name}}</td>
+        <td>{{hotel.state}}</td>
+        <td>
+         <button class="btn btn-primary">Update</button>
+        </td>
+        <td>
+         <button class="btn btn-danger">Delete</button>
+        </td>
+       </tr>
+      <tbody>
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <app-modal></app-modal>
