@@ -1,1 +1,38 @@
-<p>orders-admin works!</p>
+<section class="row mt-5">
+    <div class="col">
+     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalOrder">New Order</button>
+     <table class="table table-hover">
+      <thead>
+       <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre Cliente</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Estatus</th>
+        <th scope="col">Localizador</th>
+       </tr>
+      </thead>
+       <tr *ngFor="let destiny of destinies; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{hotel.name}}</td>
+        <td>{{hotel.ci}}</td>
+        <td>{{hotel.email}}</td>
+        <td>{{hotel.phone}}</td>
+        <td>{{hotel.direction}}</td>
+        <td>{{hotel.status}}</td>
+        <td>{{hotel.localizator}}</td>
+        <td>
+         <button class="btn btn-primary">Update</button>
+        </td>
+        <td>
+         <button class="btn btn-danger">Delete</button>
+        </td>
+       </tr>
+      <tbody>
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <app-modal></app-modal>
