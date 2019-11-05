@@ -31,10 +31,9 @@ const routes: Routes = [
   { path: 'planea-tu-viaje', component: PlanYourTripComponent },
   { path: 'itinerario', component: ItineraryComponent },
   { path: 'contacto', component: ContactComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  {
-    path: 'admin',
+  { path: 'admin/login', component: LoginComponent },
+  { path: 'admin/register', component: RegisterComponent },
+  { path: 'admin',
     component: AdminNavigationComponent,
     children: [
       { path: '', component: DashboardAdminComponent },
@@ -42,8 +41,8 @@ const routes: Routes = [
       { path: 'hoteles', component: HotelsAdminComponent },
       { path: 'habitaciones', component: RoomsAdminComponent },
       { path: 'ordenes', component: OrdersAdminComponent },
-      { path: 'estados', component: StatesAdminComponent },
       { path: 'ciudades', component: CitiesAdminComponent },
+      { path: 'estados', component: StatesAdminComponent },
     ]
   },
   { path: '**', component: Page404Component }
