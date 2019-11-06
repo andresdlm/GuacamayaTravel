@@ -11,13 +11,14 @@ import { NgForm } from '@angular/forms'
 export class OrdersAdminComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
+
   private orders: OrderInterface[];
 
   ngOnInit() {
-    this.getOrdersAdminComponent();
+    this.getListOrders();
   }
 
-  getOrdersAdminComponent() {
+  getListOrders() {
     this.dataApi.readAllOrder().subscribe(orders => {
       this.orders = orders;
     });
