@@ -1,5 +1,5 @@
-<h3 class="float-left">Ciudades</h3>
-<button class="btn btn-primary float-right mb-3">Nueva Ciudad</button>
+<h3 class="float-left" style="margin-right: 161px;">Ciudades</h3>
+<button class="btn btn-warning float-right mb-3" data-toggle="modal" data-target="#modalCity">Nueva Ciudad</button>
 <table class="table">
     <thead>
         <tr>
@@ -14,11 +14,12 @@
             <td>{{ city.name }}</td>
             <td>{{ city.state }}</td>
             <td>
-                <button class="btn btn-primary">Modificar</button>
+                <button class="btn btn-warning" (click)="onPreUpdateCity(city)"  data-toggle="modal" data-target="#modalCity">Modificar</button>
             </td>
             <td>
-                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-danger" (click)="onDeleteCity(city.id)">Eliminar</button>
             </td>
         </tr>
     </tbody>
 </table>
+<app-city-modal></app-city-modal>

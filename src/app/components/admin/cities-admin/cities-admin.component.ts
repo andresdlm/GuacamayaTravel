@@ -27,7 +27,12 @@ export class CitiesAdminComponent implements OnInit {
   onDeleteCity(idCity: string): void {
     const confirmacion = confirm('¿Estas seguro de eliminar la ciudad?');
     if (confirmacion) {
-      this.dataApi.deleteOrder(idCity);
+      this.dataApi.deleteCity(idCity);
     }  
   }
+
+  onPreUpdateCity(city: CityInterface) {
+    this.dataApi.selectedCity = Object.assign({}, city)
+  }
+
 }
