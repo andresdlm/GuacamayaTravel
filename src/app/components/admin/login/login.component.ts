@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
   onLogin(): void{
     this.authService.loginEmailUser(this.email, this.password)
     .then( (res) => {
-      this.router.navigate(['']);
-    }).catch( err => console.log('err', err.message))
+      this.router.navigate(['admin/']);
+    }).catch( err => alert("El email o contraseña son invalidos"))
   }
 
   onLogout(){

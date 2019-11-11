@@ -1,5 +1,5 @@
-<h3 class="float-left">Estados</h3>
-<button class="btn btn-primary float-right mb-3">Nuevo Estado</button>
+<h3 class="float-left" style="padding-right: 90px;">Estados</h3>
+<button class="btn btn-warning float-right mb-3" data-toggle="modal" data-target="#modalState">Nuevo Estado</button>
 <table class="table">
     <thead>
         <tr>
@@ -12,11 +12,12 @@
         <tr *ngFor="let state of states">
             <td>{{ state.name }}</td>
             <td>
-                <button class="btn btn-primary">Modificar</button>
+                <button class="btn btn-warning" (click)="onPreUpdateState(state)"  data-toggle="modal" data-target="#modalState">Modificar</button>
             </td>
             <td>
-                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-danger" (click)="onDeleteState(state.id)">Eliminar</button>
             </td>
         </tr>
     </tbody>
 </table>
+<app-state-modal></app-state-modal>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service'
-import { AngularFireAuth } from '@angular/fire/auth'
+import { AuthService } from '../../services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/auth'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private authService: AuthService, private afsAuth: AngularFireAuth) { }
+  constructor(private authService: AuthService, private afsAuth: AngularFireAuth, private router: Router) { }
 
   public isLogged: boolean = true;
 
@@ -20,10 +21,8 @@ export class HeaderComponent implements OnInit {
   getCurrentUser(){
     this.authService.isAuth().subscribe( auth => { 
       if (auth){
-        console.log("user logged");
         this.isLogged = true;
       } else {
-        console.log("NOT user logged");
         this.isLogged = false;
       }
     })
@@ -31,6 +30,7 @@ export class HeaderComponent implements OnInit {
 
   onLogout(){
     this.afsAuth.auth.signOut();
+    this.router.navigate(['']);
   }
 
 }

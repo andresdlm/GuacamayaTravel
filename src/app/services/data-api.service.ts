@@ -62,6 +62,24 @@ export class DataApiService {
   private roomDoc: AngularFirestoreDocument<RoomInterface>;
   private room: Observable<RoomInterface>;
 
+  public selectedCategory: CategoryInterface = {
+    id: null
+  };
+  public selectedHotel: HotelInterface = {
+    id: null
+  };
+  public selectedState: StateInterface = {
+    id: null
+  };
+  public selectedCity: CityInterface = {
+    id: null
+  };
+  public selectedOrder: OrderInterface = {
+    id: null
+  };
+  public selectedDestination: DestinationInterface = {
+    id: null
+  };
 
   // CRUD Hoteles
 
@@ -122,7 +140,7 @@ export class DataApiService {
   }
 
   readOneDestination(idDestination: string) {
-    this.destinationDoc = this.afs.doc<DestinationInterface>(`destino/${idDestination}`);
+    this.destinationDoc = this.afs.doc<DestinationInterface>(`destinos/${idDestination}`);
     return this.destination = this.destinationDoc.snapshotChanges().pipe(map(action => {
       if (action.payload.exists === false) {
         return null;
@@ -136,12 +154,12 @@ export class DataApiService {
 
   updateDestination(destination: DestinationInterface): void {
     const idDestination = destination.id;
-    this.destinationDoc = this.afs.doc<DestinationInterface>(`destino/${idDestination}`);
+    this.destinationDoc = this.afs.doc<DestinationInterface>(`destinos/${idDestination}`);
     this.destinationDoc.update(destination);
   }
 
   deleteDestination(idDestination: string): void {
-    this.destinationDoc = this.afs.doc<DestinationInterface>(`destino/${idDestination}`);
+    this.destinationDoc = this.afs.doc<DestinationInterface>(`destinos/${idDestination}`);
     this.destinationDoc.delete();
   }
 
@@ -164,12 +182,12 @@ export class DataApiService {
 
   updateCategory(category: CategoryInterface): void {
     const idCategory = category.id;
-    this.categoryDoc = this.afs.doc<CategoryInterface>(`categoria/${idCategory}`);
+    this.categoryDoc = this.afs.doc<CategoryInterface>(`categorias/${idCategory}`);
     this.categoryDoc.update(category);
   }
 
   deleteCategory(idCategory: string): void {
-    this.categoryDoc = this.afs.doc<CategoryInterface>(`categoria/${idCategory}`);
+    this.categoryDoc = this.afs.doc<CategoryInterface>(`categorias/${idCategory}`);
     this.categoryDoc.delete();
   }
 
@@ -192,12 +210,12 @@ export class DataApiService {
 
   updateState(state: StateInterface): void {
     const idState = state.id;
-    this.stateDoc = this.afs.doc<StateInterface>(`estado/${idState}`);
+    this.stateDoc = this.afs.doc<StateInterface>(`estados/${idState}`);
     this.stateDoc.update(state);
   }
 
   deleteState(idState: string): void {
-    this.stateDoc = this.afs.doc<StateInterface>(`estado/${idState}`);
+    this.stateDoc = this.afs.doc<StateInterface>(`estados/${idState}`);
     this.stateDoc.delete();
   }
 
@@ -220,12 +238,12 @@ export class DataApiService {
 
   updateCity(city: CityInterface): void {
     const idCity = city.id;
-    this.cityDoc = this.afs.doc<CityInterface>(`ciudad/${idCity}`);
+    this.cityDoc = this.afs.doc<CityInterface>(`ciudades/${idCity}`);
     this.cityDoc.update(city);
   }
 
   deleteCity(idCity): void {
-    this.cityDoc = this.afs.doc<CityInterface>(`ciudad/${idCity}`);
+    this.cityDoc = this.afs.doc<CityInterface>(`ciudades/${idCity}`);
     this.cityDoc.delete();
   }
 
@@ -248,12 +266,12 @@ export class DataApiService {
 
   updateOrder(order: OrderInterface): void {
     const idOrder = order.id;
-    this.orderDoc = this.afs.doc<OrderInterface>(`orden/${idOrder}`);
+    this.orderDoc = this.afs.doc<OrderInterface>(`ordenes/${idOrder}`);
     this.orderDoc.update(order);
   }
 
   deleteOrder(idOrder): void {
-    this.orderDoc = this.afs.doc<OrderInterface>(`orden/${idOrder}`);
+    this.orderDoc = this.afs.doc<OrderInterface>(`ordenes/${idOrder}`);
     this.orderDoc.delete();
   }
 

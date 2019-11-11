@@ -1,5 +1,5 @@
-<h3 class="float-left">Categorias</h3>
-<button class="btn btn-primary float-right mb-3">Nueva Categoria</button>
+<h3 class="float-left"  style="padding-right: 30px;">Categorias</h3>
+<button class="btn btn-warning float-right mb-3" data-toggle="modal" data-target="#modalCategory">Nueva Categoria</button>
 <table class="table">
     <thead>
         <tr>
@@ -12,11 +12,12 @@
         <tr *ngFor="let category of categories">
             <td>{{ category.name }}</td>
             <td>
-                <button class="btn btn-primary">Modificar</button>
+                <button class="btn btn-warning" (click)="onPreUpdateCategory(category)"  data-toggle="modal" data-target="#modalCategory">Modificar</button>
             </td>
             <td>
-                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-danger" (click)="onDeleteCategory(category.id)">Eliminar</button>
             </td>
         </tr>
     </tbody>
 </table>
+<app-category-modal></app-category-modal>

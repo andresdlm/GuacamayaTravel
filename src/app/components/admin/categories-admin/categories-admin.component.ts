@@ -24,4 +24,15 @@ export class CategoriesAdminComponent implements OnInit {
     });
   }
 
+  onDeleteCategory(idCategory: string) {
+    const confirmation = confirm('¿Estas seguro de eliminar esta categoria?')
+    if(confirmation) {
+      this.dataApi.deleteCategory(idCategory);
+    }
+  }
+
+  onPreUpdateCategory(category: CategoryInterface) {
+    this.dataApi.selectedCategory = Object.assign({}, category)
+  }
+
 }

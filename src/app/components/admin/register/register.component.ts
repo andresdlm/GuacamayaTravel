@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   onAddAdmin(){
     this.authService.registerAdmin(this.email, this.password)
     .then((res) => {
-      this.router.navigate(['']);
+      this.router.navigate(['admin/']);
     }).catch(err => console.log('err', err.message));
   }
 

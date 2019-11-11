@@ -30,4 +30,9 @@ export class StatesAdminComponent implements OnInit {
       this.dataApi.deleteState(idState);
     }
   }
+
+  onPreUpdateState(state: StateInterface) {
+    this.dataApi.selectedState = Object.assign({}, state)
+  }
+
 }

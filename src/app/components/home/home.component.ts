@@ -13,10 +13,6 @@ export class HomeComponent implements OnInit {
   public states = [];
   public state = '';
 
-  ngOnInit() {
-    this.dataApi.readAllState().subscribe(states => {
-      console.log('Estados', states)
-    })
-  }
+  ngOnInit() { }
 
 }
