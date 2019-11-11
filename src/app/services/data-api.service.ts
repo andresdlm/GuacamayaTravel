@@ -80,6 +80,9 @@ export class DataApiService {
   public selectedDestination: DestinationInterface = {
     id: null
   };
+  public selectedRoom: RoomInterface = {
+    id: null
+  };
 
   // CRUD Hoteles
 
