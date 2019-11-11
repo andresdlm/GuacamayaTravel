@@ -1,6 +1,6 @@
 <section class="row mt-5">
     <div class="col">
-     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalRoom">New Room</button>
+     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalRoom">Nueva Habitación</button>
      <table class="table table-hover">
       <thead>
        <tr>
@@ -17,19 +17,19 @@
       </thead>
        <tr *ngFor="let room of rooms; index as i">
         <th scope="row">{{i+1}}</th>
-        <td>{{hotel.name}}</td>
-        <td>{{hotel.stars}}</td>
-        <td>{{hotel.latitude}}</td>
-        <td>{{hotel.longitude}}</td>
-        <td>{{hotel.direction}}</td>
-        <td>{{hotel.state}}</td>
-        <td>{{hotel.city}}</td>
-        <td>{{hotel.}}</td>
+        <td>{{room.name}}</td>
+        <td>{{room.stars}}</td>
+        <td>{{room.latitude}}</td>
+        <td>{{room.longitude}}</td>
+        <td>{{room.direction}}</td>
+        <td>{{room.state}}</td>
+        <td>{{room.city}}</td>
+        <td>{{room.name}}</td>
         <td>
-         <button class="btn btn-primary">Update</button>
+         <button class="btn btn-primary">Modificar</button>
         </td>
         <td>
-         <button class="btn btn-danger">Delete</button>
+         <button class="btn btn-danger">Eliminar</button>
         </td>
        </tr>
       <tbody>
@@ -37,4 +37,3 @@
      </table>
     </div>
    </section>
-   <app-modal></app-modal>

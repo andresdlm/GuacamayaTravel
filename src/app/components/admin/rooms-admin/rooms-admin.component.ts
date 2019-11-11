@@ -30,4 +30,9 @@ export class RoomsAdminComponent implements OnInit {
     }
   }
 
+  onPreUpdateRoom(room: RoomInterface) {
+    console.log('ROOM', room);
+    this.dataApi.selectedRoom = Object.assign({}, room);
+  }
+
 }

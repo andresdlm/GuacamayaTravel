@@ -28,6 +28,11 @@ export class OrdersAdminComponent implements OnInit {
     if (confirmacion) {
       this.dataApi.deleteOrder(idOrder);
     }
-  }  
+  }
+  
+  onPreUpdateOrder(order: OrderInterface) {
+    console.log('ORDER', order);
+    this.dataApi.selectedOrder = Object.assign({}, order);
+  }
 
 }

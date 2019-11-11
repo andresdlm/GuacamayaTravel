@@ -1,6 +1,7 @@
+<h3 class="float-left">Hoteles</h3>
 <section class="row mt-5">
     <div class="col">
-     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalHotel">New Hotel</button>
+     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalHotel">Nuevo Hotel</button>
      <table class="table table-hover">
       <thead>
        <tr>
@@ -24,12 +25,11 @@
         <td>{{hotel.direction}}</td>
         <td>{{hotel.state}}</td>
         <td>{{hotel.city}}</td>
-        <td>{{hotel.}}</td>
         <td>
-         <button class="btn btn-primary">Update</button>
+         <button class="btn btn-primary" (click)="onPreUpdateHotel(hotel)">Modificar</button>
         </td>
         <td>
-         <button class="btn btn-danger">Delete</button>
+         <button class="btn btn-danger" (click)="onDeleteHotel(hotel.id)">Eliminar</button>
         </td>
        </tr>
       <tbody>
@@ -37,4 +37,4 @@
      </table>
     </div>
    </section>
-   <app-modal></app-modal>
+   <app-hotel-modal></app-hotel-modal>

@@ -28,6 +28,11 @@ export class DestinationsAdminComponent implements OnInit {
     if (confirmacion) {
       this.dataApi.deleteDestination(idDestination);
     }
-  }  
+  }
+  
+  onPreUpdateDestination(destination: DestinationInterface) {
+    console.log('DESTINATION', destination);
+    this.dataApi.selectedDestination = Object.assign({}, destination);
+  }
 }
 

@@ -30,6 +30,9 @@ export class HotelsAdminComponent implements OnInit {
     }
   }
 
-
+  onPreUpdateHotels(hotel: HotelInterface) {
+    console.log('HOTEL', hotel);
+    this.dataApi.selectedHotel = Object.assign({}, hotel);
+  }
 
 }

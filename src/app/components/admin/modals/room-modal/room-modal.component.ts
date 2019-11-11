@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { DataApiService } from 'src/app/services/data-api.service';
+import { RoomInterface } from 'src/app/models/room';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-room-modal',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
+  @ViewChild('btnClose', {static: false}) btnClose: ElementRef;
 
   ngOnInit() {
+  }
+ 
+  onSaveRoom(roomForm: NgForm): void {
+    if (roomForm.value.id == null){
+      //Nuevo
+      this.dataApi.createRoom(roomForm.value);
+    } else {
+      //Modificar
+      this.dataApi.updateRoom(roomForm.value);
+    }
+    roomForm.resetForm();
+    this.btnClose.nativeElement.click();
   }
 
 }
