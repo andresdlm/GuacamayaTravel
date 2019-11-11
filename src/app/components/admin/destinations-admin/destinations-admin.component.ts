@@ -24,16 +24,15 @@ export class DestinationsAdminComponent implements OnInit {
     });
   }
 
-  onDeleteDestinations(idDestination: string): void {
-    const confirmacion = confirm('Are you sure?');
+  onDeleteDestination(idDestination: string): void {
+    const confirmacion = confirm('¿Estas seguro de eliminar el destino?');
     if (confirmacion) {
       this.dataApi.deleteDestination(idDestination);
     }
   }
   
   onPreUpdateDestination(destination: DestinationInterface) {
-    console.log('DESTINATION', destination);
     this.dataApi.selectedDestination = Object.assign({}, destination);
   }
-}
 
+}
