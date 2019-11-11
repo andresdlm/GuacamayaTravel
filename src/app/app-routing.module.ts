@@ -20,6 +20,7 @@ import { RoomsAdminComponent } from './components/admin/rooms-admin/rooms-admin.
 import { OrdersAdminComponent } from './components/admin/orders-admin/orders-admin.component';
 import { StatesAdminComponent } from './components/admin/states-admin/states-admin.component';
 import { AdminNavigationComponent } from './navigation/admin-navigation/admin-navigation.component';
+import { CategoriesAdminComponent } from './components/admin/categories-admin/categories-admin.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
       { path: 'ordenes', component: OrdersAdminComponent },
       { path: 'ciudades', component: CitiesAdminComponent },
       { path: 'estados', component: StatesAdminComponent },
+      { path: 'categorias', component: CategoriesAdminComponent },
     ]
   },
   { path: '**', component: Page404Component }

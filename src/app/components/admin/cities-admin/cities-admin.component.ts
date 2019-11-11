@@ -18,15 +18,16 @@ export class CitiesAdminComponent implements OnInit {
     this.getListCities();
   }
 
-  getListCities() {
+  getListCities(): void {
     this.dataApi.readAllCity().subscribe(cities => {
       this.cities = cities;
     });
   }
-  
 
-  onDeleteCity() {
-    console.log('DELETE CITY')
+  onDeleteCity(idCity: string): void {
+    const confirmacion = confirm('¿Estas seguro de eliminar la ciudad?');
+    if (confirmacion) {
+      this.dataApi.deleteOrder(idCity);
+    }  
   }
-
 }

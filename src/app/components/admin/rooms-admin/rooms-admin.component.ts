@@ -11,20 +11,21 @@ import { NgForm } from '@angular/forms'
 export class RoomsAdminComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
+
   private rooms: RoomInterface[];
 
   ngOnInit() {
-    this.getRoomsAdminComponent();
+    this.getListRooms();
   }
 
-  getRoomsAdminComponent() {
+  getListRooms() {
     this.dataApi.readAllRoom().subscribe(rooms => {
       this.rooms = rooms;
     });
   }
 
   onDeleteRooms(idRoom: string): void {
-    const confirmacion = confirm('Are you sure?');
+    const confirmacion = confirm('¿Estas seguro de eliminar la habitación?');
     if (confirmacion) {
       this.dataApi.deleteRoom(idRoom);
     }

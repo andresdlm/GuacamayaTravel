@@ -11,20 +11,21 @@ import { NgForm } from '@angular/forms'
 export class HotelsAdminComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
+
   private hotels: HotelInterface[];
 
   ngOnInit() {
-    this.getHotelsAdminComponent();
+    this.getListHotels();
   }
 
-  getHotelsAdminComponent() {
+  getListHotels(): void {
     this.dataApi.readAllHotels().subscribe(hotels => {
       this.hotels = hotels;
     });
   }
 
   onDeleteHotels(idHotel: string): void {
-    const confirmacion = confirm('Are you sure?');
+    const confirmacion = confirm('¿Estas seguro de que eliminar el hotel?');
     if (confirmacion) {
       this.dataApi.deleteHotels(idHotel);
     }

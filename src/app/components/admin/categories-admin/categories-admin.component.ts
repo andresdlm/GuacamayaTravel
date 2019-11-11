@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from '../../../services/data-api.service';
+import { CategoryInterface } from '../../../models/category';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-categories-admin',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
+
+  private categories: CategoryInterface[];
 
   ngOnInit() {
+    this.getListCategories();
+  }
+
+  getListCategories() {
+    this.dataApi.readAllCategory().subscribe(categories => {
+      this.categories = categories;
+    });
   }
 
 }

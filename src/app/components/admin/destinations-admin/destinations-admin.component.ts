@@ -11,14 +11,15 @@ import { NgForm } from '@angular/forms'
 export class DestinationsAdminComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
+
   private destinations: DestinationInterface[];
 
   ngOnInit() {
-    this.getDestinationsAdminComponent();
+    this.getListDestinations();
   }
 
-  getDestinationsAdminComponent() {
-    this.dataApi.readAllOrder().subscribe(destinations => {
+  getListDestinations() {
+    this.dataApi.readAllDestination().subscribe(destinations => {
       this.destinations = destinations;
     });
   }
