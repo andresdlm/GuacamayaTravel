@@ -24,15 +24,14 @@ export class HotelsAdminComponent implements OnInit {
     });
   }
 
-  onDeleteHotels(idHotel: string): void {
+  onDeleteHotel(idHotel: string): void {
     const confirmacion = confirm('¿Estas seguro de que eliminar el hotel?');
     if (confirmacion) {
       this.dataApi.deleteHotels(idHotel);
     }
   }
 
-  onPreUpdateHotels(hotel: HotelInterface) {
-    console.log('HOTEL', hotel);
+  onPreUpdateHotel(hotel: HotelInterface): void {
     this.dataApi.selectedHotel = Object.assign({}, hotel);
   }
 

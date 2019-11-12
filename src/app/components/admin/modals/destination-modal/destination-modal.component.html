@@ -12,7 +12,6 @@
             <div class="modal-body">
                 <form name="formDestination" #formDestination="ngForm" (ngSubmit)="onSaveDestination(formDestination)">
                     <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedDestination.id">
-                    <input type="hidden" name="userUid" [value]="userUid">
                     <div class="form-group">
                         <label for="name" class="col-form-label">Nombre:</label>
                         <input type="text" class="form-control" name="name" [(ngModel)]="this.dataApi.selectedDestination.name">

@@ -1,40 +1,39 @@
 <h3 class="float-left">Hoteles</h3>
 <section class="row mt-5">
     <div class="col">
-     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalHotel">Nuevo Hotel</button>
-     <table class="table table-hover">
-      <thead>
-       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Estrellas</th>
-        <th scope="col">Latitud</th>
-        <th scope="col">Longitud</th>
-        <th scope="col">Direccion</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Ciudad</th>
-        <th scope="col">Tipo de Habitacion</th>
-       </tr>
-      </thead>
-       <tr *ngFor="let hotel of hotels; index as i">
-        <th scope="row">{{i+1}}</th>
-        <td>{{hotel.name}}</td>
-        <td>{{hotel.stars}}</td>
-        <td>{{hotel.latitude}}</td>
-        <td>{{hotel.longitude}}</td>
-        <td>{{hotel.direction}}</td>
-        <td>{{hotel.state}}</td>
-        <td>{{hotel.city}}</td>
-        <td>
-         <button class="btn btn-primary" (click)="onPreUpdateHotel(hotel)">Modificar</button>
-        </td>
-        <td>
-         <button class="btn btn-danger" (click)="onDeleteHotel(hotel.id)">Eliminar</button>
-        </td>
-       </tr>
-      <tbody>
-      </tbody>
-     </table>
+        <button class="btn btn-warning float-right mb-3" data-toggle="modal" data-target="#modalHotel">Nuevo Hotel</button>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Estrellas</th>
+                    <th scope="col">Latitud</th>
+                    <th scope="col">Longitud</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hotel of hotels; index as i">
+                    <td>{{hotel.name}}</td>
+                    <td>{{hotel.stars}}</td>
+                    <td>{{hotel.latitude}}</td>
+                    <td>{{hotel.longitude}}</td>
+                    <td>{{hotel.address}}</td>
+                    <td>{{hotel.state}}</td>
+                    <td>{{hotel.city}}</td>
+                    <td>
+                        <button class="btn btn-warning" (click)="onPreUpdateHotel(hotel)" data-toggle="modal" data-target="#modalHotel">Modificar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" (click)="onDeleteHotel(hotel.id)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 <app-hotel-modal></app-hotel-modal>

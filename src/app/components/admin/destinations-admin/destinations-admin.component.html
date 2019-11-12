@@ -6,7 +6,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Descripcion</th>
             <th scope="col">Categoría</th>
-            <th scope="col">Direccion</th>
+            <th scope="col">Dirección</th>
             <th scope="col">Estado</th>
             <th scope="col">Ciudad</th>
             <th scope="col">Latitud</th>
@@ -26,7 +26,7 @@
             <td>{{ destination.latitude }}</td>
             <td>{{ destination.longitude }}</td>
             <td>
-                <button class="btn btn-warning" (click)="onPreUpdateDestination(destination)"   data-toggle="modal" data-target="#modalDestination">Modificar</button>
+                <button class="btn btn-warning" (click)="onPreUpdateDestination(destination)" data-toggle="modal" data-target="#modalDestination">Modificar</button>
             </td>
             <td>
                 <button class="btn btn-danger" (click)="onDeleteDestination(destination.id)">Eliminar</button>

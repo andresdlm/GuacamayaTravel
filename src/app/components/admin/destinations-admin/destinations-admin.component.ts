@@ -18,7 +18,7 @@ export class DestinationsAdminComponent implements OnInit {
     this.getListDestinations();
   }
 
-  getListDestinations() {
+  getListDestinations(): void {
     this.dataApi.readAllDestination().subscribe(destinations => {
       this.destinations = destinations;
     });
@@ -31,7 +31,7 @@ export class DestinationsAdminComponent implements OnInit {
     }
   }
   
-  onPreUpdateDestination(destination: DestinationInterface) {
+  onPreUpdateDestination(destination: DestinationInterface): void {
     this.dataApi.selectedDestination = Object.assign({}, destination);
   }
 

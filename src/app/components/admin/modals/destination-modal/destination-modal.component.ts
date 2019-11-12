@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataApiService } from 'src/app/services/data-api.service';
 import { StateInterface } from 'src/app/models/state';
 import { CategoryInterface } from 'src/app/models/category';
-import { CityInterface } from 'src/app/models/city'
+import { CityInterface } from 'src/app/models/city';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -52,7 +52,7 @@ export class DestinationModalComponent implements OnInit {
       //update
       this.dataApi.updateDestination(destinationForm.value);
     }
-    this.clearForm(destinationForm)
+    this.clearForm(destinationForm);
     this.btnClose.nativeElement.click();
   }
 

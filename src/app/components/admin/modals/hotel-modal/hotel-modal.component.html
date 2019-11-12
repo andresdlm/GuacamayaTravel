@@ -1,76 +1,70 @@
 <div class="modal fade" id="modalHotel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            {{ !this.dataApi.selectedHotel.id ? 'Nuevo Hotel' : 'Modificar Hotel'}}
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    {{ !this.dataApi.selectedHotel.id ? 'Nuevo Hotel' : 'Modificar Hotel'}}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="clearForm(formHotel)">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="formHotel" #formHotel="ngForm" (ngSubmit)="onSaveHotel(formHotel)">
+                    <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedHotel.id">
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Nombre:</label>
+                        <input type="text" class="form-control" name="name" [(ngModel)]="this.dataApi.selectedHotel.name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="stars">Estrellas</label>
+                            <select name="stars" class="form-control" [(ngModel)]="this.dataApi.selectedHotel.stars">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="fullday">FullDay</label>
+                            <select name="fullday" class="form-control" [(ngModel)]="this.dataApi.selectedHotel.fullday">
+                                <option value="1">Disponible</option>
+                                <option value="0">No Disponible</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="state">Estado</label>
+                            <select name="state" class="form-control" [(ngModel)]="this.dataApi.selectedHotel.state">
+                                <option *ngFor="let state of states" value="{{ state.name }}">{{ state.name }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="city">Ciudad</label>
+                            <select name="city" class="form-control" [(ngModel)]="this.dataApi.selectedHotel.city">
+                                <option *ngFor="let city of cities" value="{{ city.name }}">{{ city.name }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="latitude">Latitud</label>
+                            <input type="text" name="latitude" class="form-control" [(ngModel)]="this.dataApi.selectedHotel.latitude">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="longitude">Longitud</label>
+                            <input type="text" name="longitude" class="form-control" [(ngModel)]="this.dataApi.selectedHotel.longitude">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Dirección:</label>
+                        <textarea class="form-control" name="address" [(ngModel)]="this.dataApi.selectedHotel.address"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal" (click)="clearForm(formHotel)">Cerrar</button>
+                        <button type="submit" class="btn btn-warning"  (click)="onSaveHotel(formHotel)">Guardar Hotel</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="modal-body">
-          <form name="formHotel" #formDestination="ngForm" (ngSubmit)="onSaveHotel(formHotel)">
-            <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedHotel.id">
-            <input type="hidden" name="userUid" [value]="userUid">
-            <div class="form-group">
-              <label for="name" class="col-form-label">Nombre:</label>
-              <input type="text" class="form-control" name="name" [(ngModel)]="this.dataApi.selectedHotel.name">
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="category">Estrellas</label>
-                <select name="category" class="form-control" [(ngModel)]="this.dataApi.selectedHotel.category">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="fullday">FullDay</label>
-                <select name="fullday" class="form-control" [(ngModel)]="this.dataApi.selectedHotel.state">
-                  <option value="1">Sí</option>
-                  <option value="0">No</option>
-                </select>
-              </div>
-            <div class="form-group col-md-6">
-                <label for="city">Ciudad</label>
-                <select name="city" class="form-control" [(ngModel)]="this.dataApi.selectedHotel.state">
-                  <option value="1">Sí</option>
-                  <option value="0">No</option>
-                </select>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="state">Estado</label>
-                <select name="state" class="form-control" [(ngModel)]="this.dataApi.selectedHotel.state">
-                  <option value="1">Sí</option>
-                  <option value="0">No</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="latitude">Latitud</label>
-                <input type="text" name="latitude" class="form-control" placeholder="Latitud" [(ngModel)]="this.dataApi.selectedHotel.latitude">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="longitude">Longitud</label>
-                <input type="text" name="longitud" class="form-control" placeholder="Longitud" [(ngModel)]="this.dataApi.selectedHotel.longitude">
-              </div>
-            </div>
-            <div class="form-group">
-                <label for="address" class="col-form-label">Dirección:</label>
-                <textarea class="form-control" name="address" [(ngModel)]="this.dataApi.selectedHotel.address"></textarea>
-              </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal">Cerrar</button>
-              <button type="submit" class="btn btn-primary"  (click)="onSaveHotel(formHotel)">Guardar Hotel</button>
-            </div>
-          </form>
-        </div>
-  
-      </div>
     </div>
-  </div>
+</div>
