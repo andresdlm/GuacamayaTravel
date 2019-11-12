@@ -1,39 +1,35 @@
 <h3 class="float-left">Ordenes</h3>
-<section class="row mt-5">
-    <div class="col">
-     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalOrder">Nueva Orden</button>
-     <table class="table table-hover">
-      <thead>
-       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombre Cliente</th>
-        <th scope="col">Cedula</th>
-        <th scope="col">Correo</th>
-        <th scope="col">Telefono</th>
-        <th scope="col">Direccion</th>
-        <th scope="col">Estatus</th>
-        <th scope="col">Localizador</th>
-       </tr>
-      </thead>
-       <tr *ngFor="let order of orders; index as i">
-        <th scope="row">{{i+1}}</th>
-        <td>{{order.name}}</td>
-        <td>{{order.ci}}</td>
-        <td>{{order.email}}</td>
-        <td>{{order.phone}}</td>
-        <td>{{order.direction}}</td>
-        <td>{{order.status}}</td>
-        <td>{{order.localizator}}</td>
-        <td>
-         <button class="btn btn-primary">Modificar</button>
-        </td>
-        <td>
-         <button class="btn btn-danger">Eliminar</button>
-        </td>
-       </tr>
-      <tbody>
-      </tbody>
-     </table>
-    </div>
-</section>
+<button class="btn btn-warning float-right mb-3" data-toggle="modal" data-target="#modalOrder">Nueva Orden</button>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Nombre Cliente</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Localizador</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders; index as i">
+            <td>{{order.clientName}}</td>
+            <td>{{order.identification}}</td>
+            <td>{{order.email}}</td>
+            <td>{{order.phone}}</td>
+            <td>{{order.address}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.locator}}</td>
+            <td>
+                <button class="btn btn-warning">Modificar</button>
+            </td>
+            <td>
+                <button class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
 <app-order-modal></app-order-modal>

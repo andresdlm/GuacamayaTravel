@@ -13,7 +13,7 @@ export class HotelsAdminComponent implements OnInit {
   constructor(private dataApi: DataApiService) { }
 
   private hotels: HotelInterface[];
-
+  
   ngOnInit() {
     this.getListHotels();
   }

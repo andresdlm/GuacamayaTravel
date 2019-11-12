@@ -1,39 +1,33 @@
-<section class="row mt-5">
-    <div class="col">
-     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalRoom">Nueva Habitación</button>
-     <table class="table table-hover">
-      <thead>
-       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Estrellas</th>
-        <th scope="col">Latitud</th>
-        <th scope="col">Longitud</th>
-        <th scope="col">Direccion</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Ciudad</th>
-        <th scope="col">Tipo de Habitacion</th>
-       </tr>
-      </thead>
-       <tr *ngFor="let room of rooms; index as i">
-        <th scope="row">{{i+1}}</th>
-        <td>{{room.name}}</td>
-        <td>{{room.stars}}</td>
-        <td>{{room.latitude}}</td>
-        <td>{{room.longitude}}</td>
-        <td>{{room.direction}}</td>
-        <td>{{room.state}}</td>
-        <td>{{room.city}}</td>
-        <td>{{room.name}}</td>
-        <td>
-         <button class="btn btn-primary">Modificar</button>
-        </td>
-        <td>
-         <button class="btn btn-danger">Eliminar</button>
-        </td>
-       </tr>
-      <tbody>
-      </tbody>
-     </table>
-    </div>
-</section>
+<h3 class="float-left">Habitaciones</h3>
+<button class="btn btn-warning float-right mb-3" data-toggle="modal" data-target="#modalRoom">Nueva Habitacion</button>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Hotel</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Capacidad</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Comodidades</th>
+            <th scope="col">Precio</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let room of rooms">
+            <td>{{ room.hotel }}</td>
+            <td>{{ room.name }}</td>
+            <td>{{ room.capacity }}</td>
+            <td style="max-width: 150px;">{{ room.description }}</td>
+            <td>{{ room.comodities }}</td>
+            <td>{{ room.price }}</td>
+            <td>
+                <button class="btn btn-warning" (click)="onPreUpdateRoom(room)" data-toggle="modal" data-target="#modalRoom">Modificar</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="onDeleteRoom(room.id)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<app-room-modal></app-room-modal>

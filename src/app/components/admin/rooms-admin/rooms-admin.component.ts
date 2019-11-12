@@ -24,7 +24,7 @@ export class RoomsAdminComponent implements OnInit {
     });
   }
 
-  onDeleteRooms(idRoom: string): void {
+  onDeleteRoom(idRoom: string): void {
     const confirmacion = confirm('¿Estas seguro de eliminar la habitación?');
     if (confirmacion) {
       this.dataApi.deleteRoom(idRoom);
@@ -32,7 +32,6 @@ export class RoomsAdminComponent implements OnInit {
   }
 
   onPreUpdateRoom(room: RoomInterface) {
-    console.log('ROOM', room);
     this.dataApi.selectedRoom = Object.assign({}, room);
   }
 

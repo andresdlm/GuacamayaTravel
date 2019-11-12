@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataApiService } from 'src/app/services/data-api.service';
-import { RoomInterface } from 'src/app/models/room';
+import { HotelInterface } from 'src/app/models/hotel';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -11,21 +11,35 @@ import { NgForm } from '@angular/forms';
 export class RoomModalComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
+
   @ViewChild('btnClose', {static: false}) btnClose: ElementRef;
 
+  private hotels: HotelInterface[]; 
+
   ngOnInit() {
+    this.getListHotels();
+  }
+
+  getListHotels(): void {
+    this.dataApi.readAllHotels().subscribe(hotels => {
+      this.hotels = hotels;
+    });
   }
  
   onSaveRoom(roomForm: NgForm): void {
     if (roomForm.value.id == null){
-      //Nuevo
+      //new
       this.dataApi.createRoom(roomForm.value);
     } else {
-      //Modificar
+      //update
       this.dataApi.updateRoom(roomForm.value);
     }
-    roomForm.resetForm();
+    this.clearForm(roomForm);
     this.btnClose.nativeElement.click();
+  }
+
+  clearForm(roomForm: NgForm): void {
+    roomForm.resetForm();
   }
 
 }

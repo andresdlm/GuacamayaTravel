@@ -8,4 +8,5 @@ export interface HotelInterface{
     state?: string;
     city?: string;
     price?: number;
+    description?: string;
 }

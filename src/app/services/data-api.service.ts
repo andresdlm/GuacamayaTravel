@@ -297,12 +297,12 @@ export class DataApiService {
 
   updateRoom(room: RoomInterface): void {
     const idRoom = room.id;
-    this.roomDoc = this.afs.doc<RoomInterface>(`room/${idRoom}`);
+    this.roomDoc = this.afs.doc<RoomInterface>(`habitaciones/${idRoom}`);
     this.roomDoc.update(room);
   }
 
   deleteRoom(idRoom): void {
-    this.roomDoc = this.afs.doc<RoomInterface>(`room/${idRoom}`);
+    this.roomDoc = this.afs.doc<RoomInterface>(`habitaciones/${idRoom}`);
     this.roomDoc.delete();
   }
 

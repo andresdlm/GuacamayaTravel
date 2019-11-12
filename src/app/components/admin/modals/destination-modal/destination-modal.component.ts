@@ -26,19 +26,19 @@ export class DestinationModalComponent implements OnInit {
     this.getListCities();
   }
 
-  getListStates() {
+  getListStates(): void {
     this.dataApi.readAllState().subscribe(states => {
       this.states = states;
     });
   }
 
-  getListCategories() {
+  getListCategories(): void {
     this.dataApi.readAllCategory().subscribe(categories => {
       this.categories = categories;
     });
   }
 
-  getListCities() {
+  getListCities(): void {
     this.dataApi.readAllCity().subscribe(cities => {
       this.cities = cities;
     });
