@@ -12,11 +12,12 @@
             <th scope="col">Longitud</th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let hotel of hotels">
-            <td>{{hotel.name}}</td>
+            <td style="max-width: 150px;">{{hotel.name}}</td>
             <td>{{hotel.stars}}</td>
             <td style="max-width: 150px;">{{hotel.address}}</td>
             <td>{{hotel.state}}</td>
@@ -28,6 +29,9 @@
             </td>
             <td>
                 <button class="btn btn-danger" (click)="onDeleteHotel(hotel.id)">Eliminar</button>
+            </td>
+            <td>
+                <button class="btn btn-secondary"><span class="fa fa-upload"></span></button>
             </td>
         </tr>
     </tbody>

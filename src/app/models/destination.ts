@@ -8,4 +8,5 @@ export interface DestinationInterface{
     state?: string;
     city?: string;
     address?: string;
+    imgSRC?: string;
 }
