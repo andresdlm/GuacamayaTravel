@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataApiService } from 'src/app/services/data-api.service';
 import { RoomInterface } from 'src/app/models/room';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { NgForm } from '@angular/forms'
 
 @Component({
@@ -10,12 +11,45 @@ import { NgForm } from '@angular/forms'
 })
 export class RoomsAdminComponent implements OnInit {
 
-  constructor(private dataApi: DataApiService) { }
+  constructor(private dataApi: DataApiService, private storage: AngularFireStorage) { }
+
+  @ViewChild('btnFile', {static: false}) btnFile: ElementRef;
+  @ViewChild('btnSubmit', {static: false}) btnSubmit: ElementRef;
 
   private rooms: RoomInterface[];
 
   ngOnInit() {
     this.getListRooms();
+  }
+
+  onClick(imgSRC): void {
+    if (imgSRC != undefined) {
+      let confirmation: boolean = confirm("Ya existe una imagen cargada ¿Deseas reemplazarla?");
+      if(confirmation) {
+        this.btnFile.nativeElement.click();
+      }
+    } else {
+      this.btnFile.nativeElement.click();
+    }
+  }
+
+  onUpload(e, room): void {
+    const id = Math.random().toString(36).substring(2);
+    const file = e.target.files[0];
+    const filePath = `habitaciones/${id}`;
+    this.storage.ref(filePath);
+    this.storage.upload(filePath, file);
+    room.imgSRC = filePath;
+    // LLama al boton submit
+    this.btnSubmit.nativeElement.click();
+  }
+
+  saveIMG(roomForm: NgForm, src: string, id: string): void {
+    // Recibe un NgForm con el valor de la imagen
+    roomForm.value.imgSRC = src;
+    roomForm.value.id = id;
+    this.dataApi.updateRoom(roomForm.value);
+    alert("Se ha subido la imagen");
   }
 
   getListRooms() {

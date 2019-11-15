@@ -24,10 +24,10 @@
             <td>{{order.status}}</td>
             <td>{{order.locator}}</td>
             <td>
-                <button class="btn btn-warning">Modificar</button>
+                <button class="btn btn-warning" (click)="onPreUpdateOrder(order)" data-toggle="modal" data-target="#modalOrder">Modificar</button>
             </td>
             <td>
-                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-danger" (click)="onDeleteOrders(order.id)">Eliminar</button>
             </td>
         </tr>
     </tbody>

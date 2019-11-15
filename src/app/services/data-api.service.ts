@@ -116,12 +116,12 @@ export class DataApiService {
 
   updateHotels(hotel: HotelInterface): void {
     const idHotel = hotel.id;
-    this.hotelDoc = this.afs.doc<HotelInterface>(`hotel/${idHotel}`);
+    this.hotelDoc = this.afs.doc<HotelInterface>(`hoteles/${idHotel}`);
     this.hotelDoc.update(hotel);
   }
 
   deleteHotels(idHotel: string): void {
-    this.hotelDoc = this.afs.doc<HotelInterface>(`hotel/${idHotel}`);
+    this.hotelDoc = this.afs.doc<HotelInterface>(`hoteles/${idHotel}`);
     this.hotelDoc.delete();
   }
 

@@ -24,8 +24,12 @@ export class OrderModalComponent implements OnInit {
       //Modificar
       this.dataApi.updateOrder(orderForm.value);
     }
-    orderForm.resetForm();
+    this.clearForm(orderForm)
     this.btnClose.nativeElement.click();
+  }
+
+  clearForm(hotelForm: NgForm): void {
+    hotelForm.resetForm();
   }
 
 }

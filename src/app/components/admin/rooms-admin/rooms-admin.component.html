@@ -23,13 +23,19 @@
             <td>{{ room.comodities }}</td>
             <td>{{ room.price }}</td>
             <td>
+                <button class="btn btn-secondary" (click)="onClick(room.imgSRC)"><span class="fa fa-upload"></span></button>
+                <form name="formIMG" #formIMG="ngForm" (ngSubmit)="saveIMG(formIMG, room.imgSRC, room.id)">
+                    <input type="hidden" name="imgSRC" value="{{ room.imgSRC }}" [(ngModel)]="this.dataApi.selectedRoom.imgSRC">
+                    <input type="hidden" name="id" value="{{ room.id }}" [(ngModel)]="this.dataApi.selectedRoom.id">
+                    <input type="file" #btnFile accept=".png, .jpg" class="inputFile" (change)="onUpload($event, room)">
+                    <button type="submit" #btnSubmit class="inputFile"></button>
+                </form>
+            </td>
+            <td>
                 <button class="btn btn-warning" (click)="onPreUpdateRoom(room)" data-toggle="modal" data-target="#modalRoom">Modificar</button>
             </td>
             <td>
                 <button class="btn btn-danger" (click)="onDeleteRoom(room.id)">Eliminar</button>
-            </td>
-            <td>
-                <button class="btn btn-secondary"><span class="fa fa-upload"></span></button>
             </td>
         </tr>
     </tbody>

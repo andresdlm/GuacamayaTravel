@@ -3,7 +3,6 @@ import { DataApiService } from 'src/app/services/data-api.service';
 import { DestinationInterface } from 'src/app/models/destination';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { NgForm } from '@angular/forms'
-import { Button } from 'protractor';
 
 @Component({
   selector: 'app-destinations-admin',
@@ -23,8 +22,15 @@ export class DestinationsAdminComponent implements OnInit {
     this.getListDestinations();
   }
 
-  onClick(): void {
-    this.btnFile.nativeElement.click();
+  onClick(imgSRC): void {
+    if (imgSRC != undefined) {
+      let confirmation: boolean = confirm("Ya existe una imagen cargada ¿Deseas reemplazarla?");
+      if(confirmation) {
+        this.btnFile.nativeElement.click();
+      }
+    } else {
+      this.btnFile.nativeElement.click();
+    }
   }
 
   onUpload(e, destination): void {

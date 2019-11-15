@@ -32,7 +32,6 @@ export class OrdersAdminComponent implements OnInit {
   }
   
   onPreUpdateOrder(order: OrderInterface) {
-    console.log('ORDER', order);
     this.dataApi.selectedOrder = Object.assign({}, order);
   }
 

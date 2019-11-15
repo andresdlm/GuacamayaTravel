@@ -61,7 +61,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal" (click)="clearForm(formHotel)">Cerrar</button>
-                        <button type="submit" class="btn btn-warning"  (click)="onSaveHotel(formHotel)">Guardar Hotel</button>
+                        <button type="submit" class="btn btn-warning">{{ !this.dataApi.selectedHotel.id ? 'Crear' : 'Actualizar'}}</button>
                     </div>
                 </form>
             </div>
