@@ -17,12 +17,14 @@ export class DestinationsAdminComponent implements OnInit {
   @ViewChild('btnSubmit', {static: false}) btnSubmit: ElementRef;
 
   private destinations: DestinationInterface[];
+  private ID: string;
 
   ngOnInit() {
     this.getListDestinations();
   }
 
-  onClick(imgSRC): void {
+  onClick(imgSRC, id): void {
+    this.ID = id;
     if (imgSRC != undefined) {
       let confirmation: boolean = confirm("Ya existe una imagen cargada ¿Deseas reemplazarla?");
       if(confirmation) {
@@ -44,10 +46,10 @@ export class DestinationsAdminComponent implements OnInit {
     this.btnSubmit.nativeElement.click();
   }
 
-  saveIMG(destinationForm: NgForm, src: string, id: string): void {
+  saveIMG(destinationForm: NgForm, src: string): void {
     // Recibe un NgForm con el valor de la imagen
     destinationForm.value.imgSRC = src;
-    destinationForm.value.id = id;
+    destinationForm.value.id = this.ID;
     this.dataApi.updateDestination(destinationForm.value);
     alert("Se ha subido la imagen");
   }

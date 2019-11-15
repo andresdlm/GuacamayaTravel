@@ -17,12 +17,14 @@ export class RoomsAdminComponent implements OnInit {
   @ViewChild('btnSubmit', {static: false}) btnSubmit: ElementRef;
 
   private rooms: RoomInterface[];
+  private ID: string;
 
   ngOnInit() {
     this.getListRooms();
   }
 
-  onClick(imgSRC): void {
+  onClick(imgSRC, id): void {
+    this.ID = id;
     if (imgSRC != undefined) {
       let confirmation: boolean = confirm("Ya existe una imagen cargada ¿Deseas reemplazarla?");
       if(confirmation) {
@@ -44,10 +46,10 @@ export class RoomsAdminComponent implements OnInit {
     this.btnSubmit.nativeElement.click();
   }
 
-  saveIMG(roomForm: NgForm, src: string, id: string): void {
+  saveIMG(roomForm: NgForm, src: string): void {
     // Recibe un NgForm con el valor de la imagen
     roomForm.value.imgSRC = src;
-    roomForm.value.id = id;
+    roomForm.value.id = this.ID;
     this.dataApi.updateRoom(roomForm.value);
     alert("Se ha subido la imagen");
   }

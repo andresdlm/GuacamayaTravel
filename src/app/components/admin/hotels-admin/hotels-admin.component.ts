@@ -17,12 +17,14 @@ export class HotelsAdminComponent implements OnInit {
   @ViewChild('btnSubmit', {static: false}) btnSubmit: ElementRef;
 
   private hotels: HotelInterface[];
+  private ID: string;
   
   ngOnInit() {
     this.getListHotels();
   }
 
-  onClick(imgSRC): void {
+  onClick(imgSRC, id): void {
+    this.ID = id;
     if (imgSRC != undefined) {
       let confirmation: boolean = confirm("Ya existe una imagen cargada ¿Deseas reemplazarla?");
       if(confirmation) {
@@ -44,10 +46,10 @@ export class HotelsAdminComponent implements OnInit {
     this.btnSubmit.nativeElement.click();
   }
 
-  saveIMG(hotelForm: NgForm, src: string, id: string): void {
+  saveIMG(hotelForm: NgForm, src: string): void {
     // Recibe un NgForm con el valor de la imagen
     hotelForm.value.imgSRC = src;
-    hotelForm.value.id = id;
+    hotelForm.value.id = this.ID;
     this.dataApi.updateHotels(hotelForm.value);
     alert("Se ha subido la imagen");
   }
