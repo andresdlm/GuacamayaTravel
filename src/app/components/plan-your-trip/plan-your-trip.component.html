@@ -1,1 +1,30 @@
-<p>plan-your-trip works!</p>
+<div class="hero-image">
+    <div class="title">
+        <h1>PLANEA TU VIAJE</h1>
+        <hr class="line"/>
+    </div>
+    <div class="hero-text">
+        <form>
+            <div class="form-container">
+                <div class="form-group">
+                    <select name="category" class="form-control select-category">
+                        <option disabled selected>Categoría</option>
+                        <option *ngFor="let category of categories" value="{{ category.name }}">{{ category.name }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p style="margin-bottom: 0px;">ó</p>
+                </div>
+                <div class="form-group">
+                    <select name="states" class="form-control select-category" >
+                        <option disabled selected>Estado</option>
+                        <option *ngFor="let state of states" value="{{ state.name }}">{{ state.name }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="search-btn form-group"><span class="fa fa-search"></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
