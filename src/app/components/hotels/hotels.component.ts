@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from '../../services/data-api.service';
+import { HotelInterface } from '../../models/hotel';
 
 @Component({
   selector: 'app-hotels',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
 
+  private hotels: HotelInterface[];
+  
   ngOnInit() {
+    this.getListHotels();
   }
+
+  getListHotels(): void {
+    this.dataApi.readAllHotels().subscribe(hotels => {
+      this.hotels = hotels;
+    });
+  }
+
 
 }
