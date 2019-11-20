@@ -1,1 +1,24 @@
-<p>hotels works!</p>
+<div class="hoteles" *ngFor="let hotel of hotels">
+    <div class="hotel">
+    <div class="principal">
+        <div class="thumb">
+            <img class="img" src="{{hotel.imgSRC}}" alt="">
+        </div>
+        <div class="info">
+            <div class="estrellas">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+            </div>
+            <h3 class="name">{{hotel.name}}</h3>
+            <div class="detalles">
+                <p class="address">Direccion: {{hotel.address}}</p>
+                <p class="state">Estado: {{hotel.state}}</p>
+            </div>
+            <button type="button" class="button" (click)="showMenu()">Ver más</button>
+        </div>
+    </div>
+    </div>
+</div>

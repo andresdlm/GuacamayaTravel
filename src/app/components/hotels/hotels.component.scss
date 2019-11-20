@@ -1,0 +1,61 @@
+.hoteles{
+    width: 55%;
+    background: #e1e1e1;
+    margin: auto;
+    border-radius: 15px;
+    border: 2px;
+    margin-bottom: 40px;
+}
+
+.hotel{
+    background: #e1e1e1 ;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: 2px;
+}
+
+.principal {display: flex; }
+
+.thumb {width: 250px; max-height: 250px;}
+
+.img {width: 100%; border-radius: 10px;}
+
+.info{
+    padding: 20px;
+    width: 60%;
+    max-height: 250px;
+}
+
+.estrellas {color: black; display: inline-block;
+    .checked {
+        color: #ffce00;
+      }
+}
+
+.h3 {
+    display: block;
+    font-size: 25px;
+    margin-left: 25PX;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.detalles { margin-top: 30px; font-size: 20px;}
+
+.p {margin-bottom: 10px;}
+
+.button {
+    display: block;
+    margin-right: 80px;
+    margin-top: 20px;
+    background: #ffce00;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 20px;
+    border: none;
+}
+
+.button:hover { cursor: pointer;}
