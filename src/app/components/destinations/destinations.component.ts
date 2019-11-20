@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
 import { CategoryInterface } from '../../models/category';
 import { StateInterface } from '../../models/state';
+import { DestinationInterface } from '../../models/destination';
 
 @Component({
   selector: 'app-destinations',
@@ -12,12 +13,20 @@ export class DestinationsComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
 
+  private destinations: DestinationInterface[];
   private categories: CategoryInterface[];
   private states: StateInterface[];
 
   ngOnInit() {
     this.getListCategories();
     this.getListStates();
+    this.getListDestinations();
+  }
+
+  getListDestinations(): void {
+    this.dataApi.readAllDestination().subscribe(destinations => {
+      this.destinations = destinations;
+    });
   }
 
   getListCategories(): void {
