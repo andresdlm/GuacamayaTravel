@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataApiService } from 'src/app/services/data-api.service';
 import { DestinationInterface } from 'src/app/models/destination';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { NgForm } from '@angular/forms'
+import { NgForm } from '@angular/forms';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-destinations-admin',
@@ -15,9 +17,11 @@ export class DestinationsAdminComponent implements OnInit {
 
   @ViewChild('btnFile', {static: false}) btnFile: ElementRef;
   @ViewChild('btnSubmit', {static: false}) btnSubmit: ElementRef;
+  @ViewChild('image', {static: false}) inputImageUser: ElementRef;
 
   private destinations: DestinationInterface[];
   private ID: string;
+  urlImage: Observable<string>;
 
   ngOnInit() {
     this.getListDestinations();
@@ -35,20 +39,23 @@ export class DestinationsAdminComponent implements OnInit {
     }
   }
 
-  onUpload(e, destination): void {
+  onUpload(e) {
     const id = Math.random().toString(36).substring(2);
     const file = e.target.files[0];
     const filePath = `destinos/${id}`;
-    this.storage.ref(filePath);
-    this.storage.upload(filePath, file);
-    destination.imgSRC = filePath;
+    const ref = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+    task.snapshotChanges().pipe( finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
     // LLama al boton submit
-    this.btnSubmit.nativeElement.click();
+    alert("Espera a que se haya cargado la imagen");
+    setTimeout(() => {
+      this.btnSubmit.nativeElement.click();
+    }, 10000);
   }
 
-  saveIMG(destinationForm: NgForm, src: string): void {
+  saveIMG(destinationForm: NgForm): void {
     // Recibe un NgForm con el valor de la imagen
-    destinationForm.value.imgSRC = src;
+    destinationForm.value.imgSRC = this.inputImageUser.nativeElement.value;
     destinationForm.value.id = this.ID;
     this.dataApi.updateDestination(destinationForm.value);
     alert("Se ha subido la imagen");

@@ -26,10 +26,10 @@
             <td>{{ destination.longitude }}</td>
             <td>
                 <button class="btn btn-secondary" (click)="onClick(destination.imgSRC, destination.id)"><span class="fa fa-upload"></span></button>
-                <form name="formIMG" #formIMG="ngForm" (ngSubmit)="saveIMG(formIMG, destination.imgSRC)">
-                    <input type="hidden" name="imgSRC" value="{{ destination.imgSRC }}" [(ngModel)]="this.dataApi.selectedDestination.imgSRC">
+                <form name="formIMG" #formIMG="ngForm" (ngSubmit)="saveIMG(formIMG)">
+                    <input #image type="hidden" [value]="urlImage | async" name="imgSRC" [(ngModel)]="this.dataApi.selectedDestination.imgSRC">
                     <input type="hidden" name="id" value="{{ destination.id }}" [(ngModel)]="this.dataApi.selectedDestination.id">
-                    <input type="file" #btnFile accept=".png, .jpg" class="inputFile" (change)="onUpload($event, destination)">
+                    <input type="file" #btnFile accept=".png, .jpg" class="inputFile" (change)="onUpload($event)">
                     <button type="submit" #btnSubmit class="inputFile"></button>
                 </form>
             </td>
