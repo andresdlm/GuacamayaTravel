@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataApiService } from 'src/app/services/data-api.service';
 import { HotelInterface } from 'src/app/models/hotel';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { NgForm } from '@angular/forms'
+import { NgForm } from '@angular/forms';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-hotels-admin',
@@ -15,9 +17,11 @@ export class HotelsAdminComponent implements OnInit {
 
   @ViewChild('btnFile', {static: false}) btnFile: ElementRef;
   @ViewChild('btnSubmit', {static: false}) btnSubmit: ElementRef;
+  @ViewChild('image', {static: false}) inputImageUser: ElementRef;
 
   private hotels: HotelInterface[];
   private ID: string;
+  urlImage: Observable<string>;
   
   ngOnInit() {
     this.getListHotels();
@@ -35,20 +39,23 @@ export class HotelsAdminComponent implements OnInit {
     }
   }
 
-  onUpload(e, hotel): void {
+  onUpload(e): void {
     const id = Math.random().toString(36).substring(2);
     const file = e.target.files[0];
     const filePath = `hoteles/${id}`;
-    this.storage.ref(filePath);
-    this.storage.upload(filePath, file);
-    hotel.imgSRC = filePath;
+    const ref = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+    task.snapshotChanges().pipe( finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
     // LLama al boton submit
-    this.btnSubmit.nativeElement.click();
+    alert("Espera a que se haya cargado la imagen");
+    setTimeout(() => {
+      this.btnSubmit.nativeElement.click();
+    }, 9000);
   }
 
-  saveIMG(hotelForm: NgForm, src: string): void {
+  saveIMG(hotelForm: NgForm): void {
     // Recibe un NgForm con el valor de la imagen
-    hotelForm.value.imgSRC = src;
+    hotelForm.value.imgSRC = this.inputImageUser.nativeElement.value;
     hotelForm.value.id = this.ID;
     this.dataApi.updateHotels(hotelForm.value);
     alert("Se ha subido la imagen");

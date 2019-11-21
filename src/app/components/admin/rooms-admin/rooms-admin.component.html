@@ -24,10 +24,10 @@
             <td>{{ room.price }}</td>
             <td>
                 <button class="btn btn-secondary" (click)="onClick(room.imgSRC, room.id)"><span class="fa fa-upload"></span></button>
-                <form name="formIMG" #formIMG="ngForm" (ngSubmit)="saveIMG(formIMG, room.imgSRC)">
-                    <input type="hidden" name="imgSRC" value="{{ room.imgSRC }}" [(ngModel)]="this.dataApi.selectedRoom.imgSRC">
+                <form name="formIMG" #formIMG="ngForm" (ngSubmit)="saveIMG(formIMG)">
+                    <input #image type="hidden" [value]="urlImage | async" name="imgSRC" [(ngModel)]="this.dataApi.selectedRoom.imgSRC">
                     <input type="hidden" name="id" value="{{ room.id }}" [(ngModel)]="this.dataApi.selectedRoom.id">
-                    <input type="file" #btnFile accept=".png, .jpg" class="inputFile" (change)="onUpload($event, room)">
+                    <input type="file" #btnFile accept=".png, .jpg" class="inputFile" (change)="onUpload($event)">
                     <button type="submit" #btnSubmit class="inputFile"></button>
                 </form>
             </td>
