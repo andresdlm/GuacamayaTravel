@@ -1,1 +1,23 @@
-<p>destination works!</p>
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-6">
+            <img src="{{destination.imgSRC}}" class="card-img" alt="Foto de {{destination.name}}">
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <h5 class="card-title">{{destination.name}}</h5>
+                <p class="card-text"><small class="text-muted">{{ destination.category }}</small></p>
+                <p class="card-text">{{destination.description}}</p>
+                <hr>
+                
+                <agm-map [latitude]="latitude" [longitude]="longitude" >
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                </agm-map>
+
+                <p class="p-direccion"><strong>Estado: </strong>{{ destination.state }}</p>
+                <p class="p-direccion"><strong>Ciudad: </strong>{{ destination.city }}</p>
+                <p class="p-direccion"><strong>Direccion: </strong>{{ destination.address }}</p>
+            </div>
+        </div>
+    </div>
+</div>

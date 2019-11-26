@@ -41,6 +41,7 @@ import { HotelModalComponent } from './components/admin/modals/hotel-modal/hotel
 import { DestinationModalComponent } from './components/admin/modals/destination-modal/destination-modal.component';
 import { CategoryModalComponent } from './components/admin/modals/category-modal/category-modal.component';
 import { CategoriesAdminComponent } from './components/admin/categories-admin/categories-admin.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,11 @@ import { CategoriesAdminComponent } from './components/admin/categories-admin/ca
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAEEjmbqo_KYPndKWsbigIJPEDcXdt0uRQ',
+      libraries: ['places']
+    })
   ],
   providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent]
