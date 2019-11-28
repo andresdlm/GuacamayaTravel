@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
 import { HotelInterface } from '../../models/hotel';
+import { DestinationInterface } from 'src/app/models/destination';
 
 @Component({
   selector: 'app-hotels',
@@ -10,11 +11,16 @@ import { HotelInterface } from '../../models/hotel';
 export class HotelsComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
+  
+  @ViewChild("destinationsInput", { static: false }) destinationInput: ElementRef;
 
   private hotels: HotelInterface[];
+  private destinations: DestinationInterface[];
+
   
   ngOnInit() {
     this.getListHotels();
+    this.getListDestinations();
   }
 
   getListHotels(): void {
@@ -23,5 +29,10 @@ export class HotelsComponent implements OnInit {
     });
   }
 
+  getListDestinations(): void {
+    this.dataApi.readAllDestination().subscribe(destinations => {
+      this.destinations = destinations;
+    });
+  }
 
 }
