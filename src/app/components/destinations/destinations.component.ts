@@ -44,18 +44,8 @@ export class DestinationsComponent implements OnInit {
     });
   }
 
-  searchDestination(formSearch) {
-    if(this.categoryInput.nativeElement.value != "Categoría" && this.stateInput.nativeElement.value != "Estado") {
-      // Ambos filtros
-      
-      // const result = words.filter(word => word.length > 6);
-    } else if (this.categoryInput.nativeElement.value == "Categoría" && this.stateInput.nativeElement.value != "Estado") {
-      // Filtro de Estado
-
-    } else if (this.categoryInput.nativeElement.value != "Categoría" && this.categoryInput.nativeElement.value == "Estado") {
-      // Filtro de Categoria
-
-    }
+  getFiltered(){
+    this.destinations = this.destinations.filter(destination => (destination.state === this.stateInput.nativeElement.value) || (destination.category === this.categoryInput.nativeElement.value)); 
   }
 
 }
