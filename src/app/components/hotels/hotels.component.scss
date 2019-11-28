@@ -1,61 +1,97 @@
-.hoteles{
-    width: 55%;
-    background: #e1e1e1;
-    margin: auto;
-    border-radius: 15px;
-    border: 2px;
-    margin-bottom: 40px;
+.form-group {
+  text-align: center;
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 10px;
+  margin-bottom: 8px;
 }
 
-.hotel{
-    background: #e1e1e1 ;
-    width: 90%;
-    margin: auto;
-    border-radius: 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    border: 2px;
+.search-drop {
+  background-color: #e1e1e1;
+  opacity: 70%;
+  border-style: none;
+  border-radius: 25px;
+  width: 200px;
+  height: 35px;
+  text-align: left;
 }
 
-.principal {display: flex; }
-
-.thumb {width: 250px; max-height: 250px;}
-
-.img {width: 100%; border-radius: 10px;}
-
-.info{
-    padding: 20px;
-    width: 60%;
-    max-height: 250px;
+.search-btn {
+  background-color: #ffce00;
+  border-style: none;
+  opacity: 75%;
+  width: 50px;
+  height: 35px;
+  border-radius: 35px;
 }
 
-.estrellas {color: black; display: inline-block;
-    .checked {
-        color: #ffce00;
-      }
+.filters {
+  font-size: 15px;
+  text-align: left;
+  float: left;
+  margin-top: 85px;
+  margin-left: 15px;
 }
 
-.h3 {
-    display: block;
-    font-size: 25px;
-    margin-left: 25PX;
-    margin-top: 0;
-    margin-bottom: 0;
+.btn {
+  display: inline-block;
+  text-align: center;
+  background-color: #FFCE00;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  line-height: 1.5;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-right: 5px;
+  cursor:pointer;
+
+  .btn-secondary {
+    color: #fff;
+    background-color: #FFCE00;
+    border-color: #ffce;
+    }
 }
 
-.detalles { margin-top: 30px; font-size: 20px;}
-
-.p {margin-bottom: 10px;}
-
-.button {
-    display: block;
-    margin-right: 80px;
-    margin-top: 20px;
-    background: #ffce00;
-    padding: 8px;
-    font-size: 15px;
-    border-radius: 20px;
-    border: none;
+.card-deck {
+  width: 30%;
+  text-align: center;
 }
 
-.button:hover { cursor: pointer;}
+.card {
+  border-radius: 15px;
+  width: 18rem;
+  margin: 10px;
+  float: left;
+  text-align: center;
+}
+
+.column {
+  float: left;
+  width: 25.25%;
+  min-width: 250px;
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+
+}
+
+.row {
+  margin: 0 -5px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  max-height: 250px;
+}
+
+.card-text {
+  text-align: justify;
+}
+
+.card .column {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
