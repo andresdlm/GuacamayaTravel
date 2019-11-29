@@ -25,8 +25,6 @@ export class DestinationComponent implements OnInit {
   getDetails(idDestination: string): void {
     this.dataApi.readOneDestination(idDestination).subscribe(destination => {
       this.destination = destination;
-      console.log("Latitud: ", Number.parseFloat(this.destination.latitude));
-      console.log("Longitud: ", Number.parseFloat(this.destination.longitude));
     });
   }
 

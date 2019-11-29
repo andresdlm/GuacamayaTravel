@@ -102,7 +102,7 @@ export class DataApiService {
   }
 
   readOneHotel(idHotel: string) {
-    this.hotelDoc = this.afs.doc<HotelInterface>(`hotel/${idHotel}`);
+    this.hotelDoc = this.afs.doc<HotelInterface>(`hoteles/${idHotel}`);
     return this.hotel = this.hotelDoc.snapshotChanges().pipe(map(action => {
       if (action.payload.exists === false) {
         return null;

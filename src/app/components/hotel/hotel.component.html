@@ -1,1 +1,57 @@
-<p>hotel works!</p>
+<h3 class="card-title">{{hotel.name}}</h3>
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-6">
+            <img src="{{hotel.imgSRC}}" class="card-img" alt="Foto de {{hotel.name}}">
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <p class="services" style="font-family: Arial, Helvetica, sans-serif;"><span class="fa fa-wifi"> Wifi gratis</span></p>
+                <p class="services" style="font-family: Arial, Helvetica, sans-serif;"><span class="fa fa-coffee"> Desayuno incluido</span></p>
+                <p class="services" style="font-family: Arial, Helvetica, sans-serif;"><span class="fa fa-thermometer-empty"> Aire acondicionado</span></p>
+                <p class="services" style="font-family: Arial, Helvetica, sans-serif;"><span class="fa fa-check"> Servicio de lavandería</span></p>
+                <p class="card-text"><small class="text-muted">{{ hotel.category }}</small></p>
+                <p class="card-text">{{hotel.description}}</p>
+                <hr>
+                <agm-map [latitude]="latitude" [longitude]="longitude" >
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                </agm-map>
+                <p class="p-direccion"><span class="fa fa-compass"></span>  {{ hotel.address }}, {{ hotel.city}}, {{hotel.state}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="form-group">
+        <select name="arrival" class="form-control search-drop">
+            <option disabled selected>Llegada</option>
+            <option type="date" id="send" ></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="departure" class="form-control search-drop">
+            <option disabled selected>Salida</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="room" class="form-control search-drop">
+            <option disabled selected>Habitacion</option>
+            <option value="Suite">Suite presidencial</option>
+            <option value="Suite"></option>
+            <option value="Habitación básica">Habitación básica</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="guest" class="form-control search-drop">
+            <option disabled selected>Huespedes</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="search-btn form-group">Reservar</button>
+    </div>
+</div>

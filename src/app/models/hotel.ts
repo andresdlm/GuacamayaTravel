@@ -9,4 +9,5 @@ export interface HotelInterface{
     city?: string;
     price?: number;
     description?: string;
+    imgSRC?: string;
 }

@@ -13,9 +13,12 @@ export class HotelComponent implements OnInit {
   constructor(private dataApi: DataApiService, private route: ActivatedRoute) { }
 
   public hotel: HotelInterface = {};
+  latitude: number;
+  longitude: number;
+  zoom: number;
 
   ngOnInit() {
-    const idHotel = this.route.snapshot.params['id']
+    const idHotel = this.route.snapshot.params['id'];
     this.getDetails(idHotel);
   }
 
@@ -23,6 +26,16 @@ export class HotelComponent implements OnInit {
     this.dataApi.readOneHotel(idHotel).subscribe(hotel => {
       this.hotel = hotel;
     });
+  }
+
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = Number.parseFloat(this.hotel.latitude);
+        this.longitude = Number.parseFloat(this.hotel.longitude);
+        //this.zoom = 15;
+      });
+    }
   }
 
 }
