@@ -4,63 +4,83 @@
         <hr class="line"/>
     </div>
     <div class="hero-text">
-        <form>
-            <div class="form-container">
-                <div class="form-group">
-                    <select name="category" class="form-control select-category">
+        <div class="container">
+            <div class="row center">
+                <div class="col">
+                    <select #categoryInput name="category" class="form-control select-category">
                         <option disabled selected>Categoría</option>
                         <option *ngFor="let category of categories" value="{{ category.name }}">{{ category.name }}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <p style="margin-bottom: 0px;">ó</p>
+                <div class="col">
+                    <div class="form-group">
+                        <p style="margin-bottom: 0px;">ó</p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <select name="states" class="form-control select-category" >
+                <div class="col">
+                    <select #statesInput name="state" class="form-control select-category" >
                         <option disabled selected>Estado</option>
                         <option *ngFor="let state of states" value="{{ state.name }}">{{ state.name }}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="search-btn form-group"><span class="fa fa-search"></span></button>
+                <div class="col">
+                    <div class="form-group">
+                        <button type="submit" class="search-btn form-group" (click)="getFiltered()"><span class="fa fa-search"></span></button>
+                    </div>
                 </div>
             </div>
-        </form>
-            <form>
-            <div class="form-container">
-                    <div class="form-group">
-                        <select name="arrival" class="form-control search-drop">
-                            <option disabled selected>Llegada</option>
-                            <option type="date" id="send" ></option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select name="departure" class="form-control search-drop">
-                            <option disabled selected>Salida</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select name="room" class="form-control search-drop">
-                            <option disabled selected>Habitacion</option>
-                            <option value="Suite">Suite presidencial</option>
-                            <option value="Suite"></option>
-                            <option value="Habitación básica">Habitación básica</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select name="guest" class="form-control search-drop">
-                            <option disabled selected>Huespedes</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="search-btn form-group">Reservar</button>
-                    </div>
+        </div>
+    </div>
+</div>
+<div class="container hotel-filter" style="margin: 15px auto;">
+    <div class="row">
+        <div class="col-md-2">
+            <select name="arrival" class="form-control search-drop">
+                <option disabled selected>Llegada</option>
+                <option type="date" id="send" ></option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <select name="departure" class="form-control search-drop">
+                    <option disabled selected>Salida</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <select name="guest" class="form-control search-drop">
+                    <option disabled selected>Huespedes</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <button type="submit" class="search-btn">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div *ngFor="let hotel of hotels" class="card mb-5" style="max-width: 1000px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{hotel.imgSRC}}" class="card-img" alt="Imagen del hotel">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ hotel.name }}</h5>
+                    <p class="card-text">Direccion: {{ hotel.address }}</p>
+                    <p class="card-text">Estado: {{ hotel.state }}</p>
+                    <p class="fa fa-star">{{ hotel.stars }}</p>
+                    <p><a routerLink="/hotel/{{hotel.id}}" class="btn btn-warning">Ver hotel</a></p>
                 </div>
-        </form>
+            </div>
+        </div>
     </div>
 </div>
