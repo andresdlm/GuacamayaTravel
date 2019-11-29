@@ -51,9 +51,17 @@ body, html {
 }
 
 .staff {
-    font-size: 20px;
+    font-size: 30px;
     text-transform: uppercase;
     margin: 20px 0;
+}
+
+.contact-columna .contact-redes {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    cursor:pointer;
 }
 
 @media screen and (max-width:960px) {

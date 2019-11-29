@@ -2,3 +2,52 @@ h1 {
     text-align: center;
     margin-top: 10px;
 }
+.card {
+    border-radius: 15px;
+    width: 18rem;
+    margin: 10px;
+    margin-left: 650px;
+    float: center;
+    text-align: center;
+  }
+  
+  .column {
+    float: left;
+    width: 25.25%;
+    min-width: 250px;
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+  
+  }
+  .card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    max-height: 250px;
+  }
+  
+  .card-text {
+    text-align: justify;
+  }
+  
+  .card .column {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  .btn {
+    display: inline-block;
+    text-align: center;
+    background-color: #FFCE00;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    line-height: 1.5;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-right: 5px;
+    cursor:pointer;
+  
+    .btn-secondary {
+      color: #fff;
+      background-color: #FFCE00;
+      border-color: #ffce;
+      }
+  }
